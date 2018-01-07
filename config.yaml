@@ -1,0 +1,5 @@
+build:
+  prefetch: true
+nix:
+  enable: true
+allow-different-user: true

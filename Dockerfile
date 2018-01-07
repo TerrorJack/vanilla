@@ -1,12 +1,5 @@
-FROM alpine:edge
+FROM terrorjack/vanilla:circleci
 
-ADD init.sh bootstrap.sh /tmp/
-RUN sh -e /tmp/init.sh
-USER vanilla
-WORKDIR /home/vanilla
+ADD bootstrap.sh config.yaml /tmp/
 RUN sh -e /tmp/bootstrap.sh
-ENV \
-  ENV=/home/vanilla/.profile \
-  NIX_PATH=nixpkgs=/home/vanilla/.nix-defexpr/channels/nixpkgs \
-  PATH=/home/vanilla/.nix-profile/bin:/home/vanilla/.nix-profile/sbin:$PATH \
-  NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+ENV PATH=/root/.nix-profile/bin:/root/.nix-profile/sbin:/root/.local/bin:/root/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
