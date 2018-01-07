@@ -8,5 +8,5 @@ jobs:
       - setup_remote_docker
       - run: |
           docker login -u terrorjack -p $DOCKER_PASS
-          docker build -t terrorjack/vanilla .
-          docker push terrorjack/vanilla
+          docker build -t terrorjack/vanilla:latest .
+          docker push terrorjack/vanilla:latest
