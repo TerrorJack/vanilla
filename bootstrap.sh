@@ -1,5 +1,9 @@
 #!/bin/sh -e
 
-curl -sSL https://nixos.org/nix/install | USER=vanilla sh -e
-echo "source /home/vanilla/.nix-profile/etc/profile.d/nix.sh" >> /home/vanilla/.profile
-sudo rm /tmp/bootstrap.sh
+nix-env -iA \
+  nixpkgs.lyx \
+  nixpkgs.pandoc \
+  nixpkgs.texlive.combined.scheme-full
+
+nix-collect-garbage -d
+rm /tmp/bootstrap.sh
